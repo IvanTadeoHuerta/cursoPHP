@@ -1,3 +1,3 @@
 <?php
-include 'function.php'; //No detiene  la ejecucion del programa
+require 'function.php'; //Detiene la ejecucion y PHP mostrara el error
 echo '<p>Texto desde index.php</p>';
