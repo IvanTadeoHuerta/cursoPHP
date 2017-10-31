@@ -2,4 +2,4 @@
 
 session_start();
 //Una opción es utilizar 
-unset($_SESSION['count']);
+session_destroy(); //Elimina completamente la sesion y la cierra en ese momento
