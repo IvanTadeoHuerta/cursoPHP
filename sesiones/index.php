@@ -6,3 +6,10 @@ $_SESSION['count']=0; //Sub variable superglobales
 
 
 echo '<p>Session</p>';
+
+/*
+ * Las sesiones son unicas por cliente  
+ * Cuando cerramos el navegador la sesion se perderá
+ *
+ */
+
