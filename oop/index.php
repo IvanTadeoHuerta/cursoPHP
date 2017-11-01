@@ -35,4 +35,6 @@ try{
 	$toy->move();
 }catch(Exception $e){
 	echo '<br>Este carro es un juguete';
+}finally{
+	echo 'finally';
 }
