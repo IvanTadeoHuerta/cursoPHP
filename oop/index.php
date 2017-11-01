@@ -16,4 +16,5 @@ $car = new Car();
 
 $car->move();
 
-
+$car->owner = 'Ivan Tadeo Huerta';
+echo 'Owner: '. $car->owner;
