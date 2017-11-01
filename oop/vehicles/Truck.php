@@ -2,6 +2,8 @@
 
 namespace Vehicles;
 
+require 'VehicleBase.php';
+
 class Truck extends Vehicle{
 	private $type;
 
