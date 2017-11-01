@@ -2,10 +2,14 @@
 
 class Car
 {
-	public $owner;
+	private $owner = 'Ivan Tadeo Huerta';
 
 	public function move(){
 		echo 'moving <br>';
+	}
+
+	public function getOwner(){
+		return $this->owner;
 	}
 
 }
@@ -15,6 +19,4 @@ echo 'Class Car <br>';
 $car = new Car();
 
 $car->move();
-
-$car->owner = 'Ivan Tadeo Huerta';
-echo 'Owner: '. $car->owner;
+echo 'Owner: '. $car->getOwner();
