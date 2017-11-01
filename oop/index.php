@@ -24,3 +24,4 @@ $truck2->move();
 echo 'Owner: '. $truck2->getOwner();
 
 echo 'Cantidad de camionetas: ' . Truck::$count . '<br>';
+

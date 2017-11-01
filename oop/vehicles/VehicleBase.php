@@ -2,7 +2,7 @@
 
 namespace Vehicles;
 
-class Vehicle
+abstract class Vehicle
 {
 	private $owner = 'Ivan Tadeo Huerta';
 
@@ -20,6 +20,7 @@ class Vehicle
 	}
 
 	public function move(){
+		echo $this->startEngine();
 		echo 'moving <br>';
 	}
 
@@ -30,6 +31,8 @@ class Vehicle
 	public function setOwner($owner){
 		$this->owner = $owner;
 	}
+
+	public abstract function startEngine(){}
 
 }
 
