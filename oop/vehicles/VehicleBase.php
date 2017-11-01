@@ -32,7 +32,7 @@ abstract class Vehicle
 		$this->owner = $owner;
 	}
 
-	public abstract function startEngine(){}
+	public abstract function startEngine();
 
 }
 

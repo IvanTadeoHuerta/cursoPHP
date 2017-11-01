@@ -19,4 +19,8 @@ class Truck extends Vehicle{
 		echo 'Truck '. $this->type .' moving <br>';
 	}
 
+	public function startEngine(){
+		return 'Truck: enciende camioneta';
+	}
+
 }
