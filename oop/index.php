@@ -27,8 +27,12 @@ $newCar = unserialize($var);
 echo 'New car owner: ' .$newCar->getOwner() . '<br>';
 
 
-echo '<br>';
-echo '<hr>';
-echo '<h2>Carro de juguete</h2>';
-$toy =  new ToyCar('Boss');
-$toy->move();
+try{
+	echo '<br>';
+	echo '<hr>';
+	echo '<h2>Carro de juguete</h2>';
+	$toy =  new ToyCar('Boss');
+	$toy->move();
+}catch(Exception $e){
+	echo '<br>Este carro es un juguete';
+}
