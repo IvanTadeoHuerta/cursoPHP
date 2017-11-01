@@ -6,7 +6,15 @@ class Car
 
 	public function __construct($owner){
 		$this->owner = $owner;
-		echo '__construct<br>';
+	}
+
+	/*
+	 * __destruct se utiliza generalmente para liberar un recurso o limpiar algo
+	 * en el script
+	 *
+	 */
+	public function __destruct(){
+		echo 'destructor<br>';
 	}
 
 	public function move(){
