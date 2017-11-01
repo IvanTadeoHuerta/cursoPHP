@@ -38,6 +38,16 @@ class Car extends Vehicle{
 }
 
 class Truck extends Vehicle{
+	private $type;
+
+	public function __construct($owner, $type){
+		$this->type = $type;
+		parent::__construct($owner);
+	}
+
+	public function move(){
+		echo 'Truck '. $this->type .' moving <br>';
+	}
 
 }
 
@@ -49,6 +59,6 @@ echo 'Owner: '. $car->getOwner();
 
 echo '<hr>';
 
-$truck =  new Truck('Ivan Tadeo Huerta');
+$truck =  new Truck('Ivan Tadeo Huerta' , 'Pickup');
 $truck->move();
 echo 'Owner: '. $truck->getOwner();
