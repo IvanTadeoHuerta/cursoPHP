@@ -1,6 +1,6 @@
 <?php
 
-class Car
+class Vehicle
 {
 	private $owner = 'Ivan Tadeo Huerta';
 
@@ -31,10 +31,24 @@ class Car
 
 }
 
-echo 'Class Car <br>';
+class Car extends Vehicle{
+	public function move(){
+		echo 'Car: moving <br>';
+	}
+}
+
+class Truck extends Vehicle{
+
+}
+
+echo '<br>';
 
 $car = new Car('Ivan Alejo');
-
 $car->move();
-
 echo 'Owner: '. $car->getOwner();
+
+echo '<hr>';
+
+$truck =  new Truck('Ivan Tadeo Huerta');
+$truck->move();
+echo 'Owner: '. $truck->getOwner();
