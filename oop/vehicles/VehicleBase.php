@@ -16,12 +16,7 @@ abstract class Vehicle
 	 *
 	 */
 	public function __destruct(){
-		echo 'destructor<br>';
-	}
-
-	public function move(){
-		echo $this->startEngine();
-		echo 'moving <br>';
+		//echo 'destructor<br>';
 	}
 
 	public function getOwner(){

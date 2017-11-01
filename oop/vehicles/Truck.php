@@ -16,7 +16,7 @@ class Truck extends Vehicle{
 	}
 
 	public function move(){
-		echo 'Truck '. $this->type .' moving <br>';
+		echo $this->startEngine();
 	}
 
 	public function startEngine(){

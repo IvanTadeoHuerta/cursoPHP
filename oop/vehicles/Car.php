@@ -5,7 +5,7 @@ require_once 'VehicleBase.php';
 
 class Car extends Vehicle{
 	public function move(){
-		echo 'Car: moving <br>';
+		echo $this->startEngine();
 	}
 
 	public function startEngine(){
