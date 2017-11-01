@@ -12,6 +12,10 @@ class Car
 		return $this->owner;
 	}
 
+	public function setOwner($owner){
+		$this->owner = $owner;
+	}
+
 }
 
 echo 'Class Car <br>';
@@ -19,4 +23,5 @@ echo 'Class Car <br>';
 $car = new Car();
 
 $car->move();
+$car->setOwner('Alejo tadeuz');
 echo 'Owner: '. $car->getOwner();
