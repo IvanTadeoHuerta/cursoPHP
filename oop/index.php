@@ -3,6 +3,8 @@
 include 'vehicles/Car.php';
 include 'vehicles/Truck.php';
 
+use Vehicles\{Car, Truck};
+
 echo '<br>';
 
 $car = new Car('Ivan Alejo');
