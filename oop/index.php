@@ -17,5 +17,12 @@ $truck =  new Truck('Ivan Tadeo Huerta' , 'Pickup');
 $truck->move();
 
 
+echo '<br>';
+echo '<h2><b>Utilizando serialize</b></h2>';
+
+$var = serialize($car);
+$newCar = unserialize($var);
+
+echo 'New car owner: ' .$newCar->getOwner() . '<br>';
 
 
