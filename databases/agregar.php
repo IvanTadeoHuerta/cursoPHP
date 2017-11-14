@@ -1,11 +1,12 @@
 <?php
 
 require_once 'config.php';
+$result = false; 
 
 if(!empty($_POST)){
 	$name = $_POST['name'];
 	$email = $_POST['email'];
-	$password  = $_POST['password'];
+	$password  = md5($_POST['password']);
 
 	$sql = "INSERT INTO users(name, email, password) VALUES (:name, :email, :password)";
 	$query = $pdo ->prepare($sql);
@@ -34,6 +35,11 @@ if(!empty($_POST)){
 					<a href="index.php">Regresar al home</a>
 				</li>
 			</ul>
+			<?php
+			 if($result){
+			 	echo '<div class="alert alert-success">Se registro correctamente!</div>';
+			 }
+			?>
 			<form action="agregar.php" method="POST">
 				<label for="name">Name</label>
 				<input type="text" name="name" id="name">
