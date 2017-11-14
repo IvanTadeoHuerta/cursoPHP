@@ -33,7 +33,7 @@
 						   echo '<tr>';
 						   echo '<td>'.$row['name']. '</td>';
 						   echo '<td>'.$row['email']. '</td>';
-						   echo '<td><a href="" class="btn btn-primary">Editar</a></td>';
+						   echo '<td><a href="editar.php?id='.$row['id'].'" class="btn btn-primary">Editar</a></td>';
 						   echo '</tr>';
 						}
 					?>
