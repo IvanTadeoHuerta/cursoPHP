@@ -1,3 +1,12 @@
+<?php
+	require_once 'config.php';
+
+	$queryResult = $pdo->query("SELECT * FROM USERS");
+
+	while ($row = $queryResult->fetch()) {
+		var_dump($row);
+	}
+?>
 <html>
 	<head>
 		<title>
