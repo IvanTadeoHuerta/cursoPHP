@@ -1,22 +1,19 @@
 <?php
 
 require_once 'config.php';
-$result = false; 
+$id = $_GET['id'];
 
-if(!empty($_POST)){
-	$name = $_POST['name'];
-	$email = $_POST['email'];
-	$password  = md5($_POST['password']);
+$sql = "SELECT * FROM USERS WHERE id = :id";
+$query = $pdo->prepare($sql);
 
-	$sql = "INSERT INTO users(name, email, password) VALUES (:name, :email, :password)";
-	$query = $pdo ->prepare($sql);
-	
-	$result = $query->execute([
-			'name' => $name,
-			'email' => $email,
-			'password' => $password
+$query->execute([
+		'id' => $id
 	]);
-}
+
+
+$row = $query->fetch(PDO::FETCH_ASSOC);
+$nameValue = $row['name'];
+$nameEmail = $row['email'];
 
 ?>
 <html>
@@ -36,16 +33,16 @@ if(!empty($_POST)){
 				</li>
 			</ul>
 			<?php
-			 if($result){
+			 /*if($result){
 			 	echo '<div class="alert alert-success">Actualizo correctamente!</div>';
-			 }
+			 }*/
 			?>
 			<form action="aditar.php" method="POST">
 				<label for="name">Name</label>
-				<input type="text" name="name" id="name">
+				<input type="text" name="name" id="name" value="<?php echo $nameValue ?>">
 				<br>
 				<label for="email">Email</label>
-				<input type="email" name="email" id="email">
+				<input type="email" name="email" id="email" value="<?php echo $nameEmail ?>">
 				<br>
 				<input type="submit" value="Guardar">
 			</form>
