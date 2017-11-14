@@ -1,19 +1,37 @@
 <?php
 
 require_once 'config.php';
-$id = $_GET['id'];
+$result = false;
 
-$sql = "SELECT * FROM USERS WHERE id = :id";
-$query = $pdo->prepare($sql);
+if(!empty($_POST)){
+	$id = $_POST['id'];
+	$nameValue = $_POST['name'];
+	$nameEmail = $_POST['email'];
 
-$query->execute([
-		'id' => $id
-	]);
+	$sql = "UPDATE users SET name=:name, email=:email WHERE id=:id";
+	$query = $pdo->prepare($sql);
+
+	$result = $query->execute([
+		'id' => $id,
+		'name'=> $nameValue,
+		'email' => $nameEmail
+		]);
+
+}else{
+	$id = $_GET['id'];
+
+	$sql = "SELECT * FROM USERS WHERE id = :id";
+	$query = $pdo->prepare($sql);
+
+	$query->execute([
+			'id' => $id
+		]);
 
 
-$row = $query->fetch(PDO::FETCH_ASSOC);
-$nameValue = $row['name'];
-$nameEmail = $row['email'];
+	$row = $query->fetch(PDO::FETCH_ASSOC);
+	$nameValue = $row['name'];
+	$nameEmail = $row['email'];
+}
 
 ?>
 <html>
@@ -33,17 +51,18 @@ $nameEmail = $row['email'];
 				</li>
 			</ul>
 			<?php
-			 /*if($result){
+			 if($result){
 			 	echo '<div class="alert alert-success">Actualizo correctamente!</div>';
-			 }*/
+			 }
 			?>
-			<form action="aditar.php" method="POST">
+			<form action="editar.php" method="POST">
 				<label for="name">Name</label>
 				<input type="text" name="name" id="name" value="<?php echo $nameValue ?>">
 				<br>
 				<label for="email">Email</label>
 				<input type="email" name="email" id="email" value="<?php echo $nameEmail ?>">
 				<br>
+				<input type="hidden" name="id" value="<?php echo $id ?>">
 				<input type="submit" value="Guardar">
 			</form>
 		</div>
