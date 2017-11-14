@@ -8,15 +8,23 @@
 	</head>
 	<body>
 		<div class="container">
-			<h1>Databases</h1>
+			<h1>Lista de usuarios</h1>
 			<ul>
 				<li>
-					<a href="lista.php">Lista de usuario</a>
-				</li>
-				<li>
-					<a href="agregar.php">Agregar usuario</a>
+					<a href="index.php">Regresar al home</a>
 				</li>
 			</ul>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Email</th>
+					</tr>
+				</thead>
+				<tbody>
+					
+				</tbody>
+			</table>
 		</div>
 	</body>
 </html>
