@@ -2,10 +2,6 @@
 	require_once 'config.php';
 
 	$queryResult = $pdo->query("SELECT * FROM USERS");
-
-	while ($row = $queryResult->fetch(PDO::FETCH_ASSOC)) {
-		var_dump($row);
-	}
 ?>
 <html>
 	<head>
@@ -31,7 +27,14 @@
 					</tr>
 				</thead>
 				<tbody>
-					
+					<?php
+					while ($row = $queryResult->fetch(PDO::FETCH_ASSOC)) {
+						   echo '<tr>';
+						   echo '<td>'.$row['name']. '</td>';
+						   echo '<td>'.$row['email']. '</td>';
+						   echo '</tr>';
+						}
+					?>
 				</tbody>
 			</table>
 		</div>
