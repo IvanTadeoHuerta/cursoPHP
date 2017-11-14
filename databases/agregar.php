@@ -14,7 +14,7 @@
 					<a href="index.php">Regresar al home</a>
 				</li>
 			</ul>
-			<form action="agregar.php">
+			<form action="agregar.php" method="POST">
 				<label for="name">Name</label>
 				<input type="text" name="name" id="name">
 				<br>
