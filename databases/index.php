@@ -1,5 +1,10 @@
 <?php 
-$pdo = new PD0("mysql:host=localhost;dbname=cursophp","root","")
+try{
+	$pdo = new PDO("mysql:host=localhost2;dbname=cursophp","root","");
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch(Exception $e){
+	echo $e->getMessage();
+}
 ?>
 <html>
 	<head>
