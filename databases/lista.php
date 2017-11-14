@@ -24,7 +24,8 @@
 					<tr>
 						<th>Name</th>
 						<th>Email</th>
-						<th>Opcion</th>
+						<th>Actualizar</th>
+						<th>Eliminar</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -34,6 +35,7 @@
 						   echo '<td>'.$row['name']. '</td>';
 						   echo '<td>'.$row['email']. '</td>';
 						   echo '<td><a href="editar.php?id='.$row['id'].'" class="btn btn-primary">Editar</a></td>';
+						   echo '<td><a href="eliminar.php?id='.$row['id'].'" class="btn btn-danger">Eliminar</a></td>';
 						   echo '</tr>';
 						}
 					?>
