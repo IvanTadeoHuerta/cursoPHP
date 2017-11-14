@@ -1,5 +1,5 @@
 <?php 
-$pdo = new PD0("","","")
+$pdo = new PD0("mysql:host=localhost;dbname=cursophp","root","")
 ?>
 <html>
 	<head>
