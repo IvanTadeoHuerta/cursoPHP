@@ -24,6 +24,7 @@
 					<tr>
 						<th>Name</th>
 						<th>Email</th>
+						<th>Opcion</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -32,6 +33,7 @@
 						   echo '<tr>';
 						   echo '<td>'.$row['name']. '</td>';
 						   echo '<td>'.$row['email']. '</td>';
+						   echo '<td><a href="" class="btn btn-primary">Editar</a></td>';
 						   echo '</tr>';
 						}
 					?>
