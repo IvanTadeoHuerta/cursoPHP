@@ -8,15 +8,24 @@
 	</head>
 	<body>
 		<div class="container">
-			<h1>Databases</h1>
+			<h1>Agregar usuario</h1>
 			<ul>
 				<li>
-					<a href="">Lista de usuario</a>
-				</li>
-				<li>
-					<a href="agregar.php">Agregar usuario</a>
+					<a href="index.php">Regresar al home</a>
 				</li>
 			</ul>
+			<form action="agregar.php">
+				<label for="name">Name</label>
+				<input type="text" name="name" id="name">
+				<br>
+				<label for="email">Email</label>
+				<input type="email" name="email" id="email">
+				<br>
+				<label for="password">Password</label>
+				<input type="Password" name="password" id="password">
+				<br>
+				<input type="submit" value="Guardar">
+			</form>
 		</div>
 	</body>
 </html>
