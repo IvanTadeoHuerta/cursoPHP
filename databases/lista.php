@@ -3,7 +3,7 @@
 
 	$queryResult = $pdo->query("SELECT * FROM USERS");
 
-	while ($row = $queryResult->fetch()) {
+	while ($row = $queryResult->fetch(PDO::FETCH_ASSOC)) {
 		var_dump($row);
 	}
 ?>
