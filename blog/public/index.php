@@ -16,8 +16,11 @@ use Phroute\Phroute\RouteCollector;
 
 $router = new RouteCollector();
 
-$router->get('/', function (){
-	return 'Route /';
+$router->get('/', function () use ($pdo){
+	$query = $pdo->prepare('SELECT * FROM blog_post ORDER BY id DESC');
+	$query->execute();
+	$blogPosts = $query->fetchAll(PDO::FETCH_ASSOC);
+	include '../views/index.php';
 }); 
 
 # NB. You can cache the return value from $router->getData() so you don't have to create the routes each request - massive speed gains
