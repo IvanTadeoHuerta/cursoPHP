@@ -1,5 +1,5 @@
 <?php
-include_once 'config.php';
+
 $query = $pdo->prepare('SELECT * FROM blog_post ORDER BY id DESC');
 $query->execute();
 $blogPosts = $query->fetchAll(PDO::FETCH_ASSOC);
