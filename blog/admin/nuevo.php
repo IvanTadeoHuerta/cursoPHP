@@ -1,8 +1,15 @@
 <?php
 include_once '../config.php';
-$query = $pdo->prepare('SELECT * FROM blog_post ORDER BY id DESC');
-$query->execute();
-$blogPosts = $query->fetchAll(PDO::FETCH_ASSOC);
+$result = false;
+
+if(!empty($_POST)){
+	$sql = 'INSERT INTO blog_post (titulo, contenido) values (:titulo,:contenido)';
+	$query = $pdo->prepare($sql);
+	$result = $query->execute([
+		'titulo' => $_POST['titulo'],
+		'contenido' => $_POST['contenido']
+	]);
+}
 ?>
 <html>
 	<head>
@@ -17,13 +24,18 @@ $blogPosts = $query->fetchAll(PDO::FETCH_ASSOC);
 			<div class="row">
 				<div class="col-md-12">
 					<h1>Administrador- agregar nuevo post</h1>
+						<?php
+						if($result){
+							echo '<div class="alert alert-success">Se agrego correctamente!!</div>';
+						}
+					?>
 				</div>
 			</div>
 			<div class="row">
 				<div class="col-md-8">
-					 <form action="/action_page.php" method="post">
+					 <form action="nuevo.php" method="post">
 						    <div class="form-group">
-						      <label for="titulo">Email:</label>
+						      <label for="titulo">Titulo:</label>
 						      <input type="titulo" class="form-control" id="titulo" placeholder="Ingresa titulo" name="titulo">
   								<label for="contenido">Contenido:</label>
 						      <textarea name="contenido" class="form-control" id="contenido" cols="30" rows="10"></textarea>
