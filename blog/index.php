@@ -1,3 +1,9 @@
+<?php
+include_once 'config.php';
+$query = $pdo->prepare('SELECT * FROM blog_post ORDER BY id DESC');
+$query->execute();
+$blogPosts = $query->fetchAll(PDO::FETCH_ASSOC);
+?>
 <html>
 	<head>
 		<title>
@@ -15,36 +21,20 @@
 			</div>
 			<div class="row">
 				<div class="col-md-8">
-					<div class="blog-post">
-						<h2>Sample tittle</h2>
-						<p>Jan  1, 2020 by <a href="">Alex</a></p>
-						<div class="blog-post-image">
-							<img src="https://thumb7.shutterstock.com/display_pic_with_logo/114085/324472871/stock-vector-november-sign-with-colour-confetti-vector-paper-illustration-324472871.jpg" alt ="">
-						</div>
-						<div class="blog-post-content">
-							Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. 
-						</div>
-					</div>
-					<div class="blog-post">
-						<h2>Sample tittle</h2>
-						<p>Jan  1, 2020 by <a href="">Alex</a></p>
-						<div class="blog-post-image">
-							<img src="https://thumb7.shutterstock.com/display_pic_with_logo/114085/324472871/stock-vector-november-sign-with-colour-confetti-vector-paper-illustration-324472871.jpg" alt ="">
-						</div>
-						<div class="blog-post-content">
-							Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. 
-						</div>
-					</div>
-					<div class="blog-post">
-						<h2>Sample tittle</h2>
-						<p>Jan  1, 2020 by <a href="">Alex</a></p>
-						<div class="blog-post-image">
-							<img src="https://thumb7.shutterstock.com/display_pic_with_logo/114085/324472871/stock-vector-november-sign-with-colour-confetti-vector-paper-illustration-324472871.jpg" alt ="">
-						</div>
-						<div class="blog-post-content">
-							Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. 
-						</div>
-					</div>
+					<?php 
+					foreach($blogPosts as $blog){
+						echo '<div class="blog-post">';
+							echo '<h2>'. $blog['titulo'] .'</h2>';
+							echo '<p>Jan  1, 2020 by <a href="">Alex</a></p>';
+							echo '	<img src="https://thumb7.shutterstock.com/display_pic_with_logo/114085/324472871/stock-vector-november-sign-with-colour-	confetti-vector-paper-illustration-324472871.jpg" alt ="">';
+								echo '<div class="blog-post-image">';
+								echo '<div class="blog-post-content">';
+								echo $blog['contenido'];
+								echo '</div>';
+								echo '</div>';
+						echo '</div>';
+					}
+					?>			
 				</div>
 				<div class="clo-md-4">
 					SideBar
