@@ -1,9 +1,3 @@
-<?php
-include_once '..config.php';
-$query = $pdo->prepare('SELECT * FROM blog_post ORDER BY id DESC');
-$query->execute();
-$blogPosts = $query->fetchAll(PDO::FETCH_ASSOC);
-?>
 <html>
 	<head>
 		<title>
@@ -21,20 +15,11 @@ $blogPosts = $query->fetchAll(PDO::FETCH_ASSOC);
 			</div>
 			<div class="row">
 				<div class="col-md-8">
-					<?php 
-					foreach($blogPosts as $blog){
-						echo '<div class="blog-post">';
-							echo '<h2>'. $blog['titulo'] .'</h2>';
-							echo '<p>Jan  1, 2020 by <a href="">Alex</a></p>';
-							echo '	<img src="https://thumb7.shutterstock.com/display_pic_with_logo/114085/324472871/stock-vector-november-sign-with-colour-	confetti-vector-paper-illustration-324472871.jpg" alt ="">';
-								echo '<div class="blog-post-image">';
-								echo '<div class="blog-post-content">';
-								echo $blog['contenido'];
-								echo '</div>';
-								echo '</div>';
-						echo '</div>';
-					}
-					?>			
+					<ul>
+						<li>
+							<a href="posts.php">Manage posts</a>
+						</li>
+					</ul>		
 				</div>
 				<div class="clo-md-4">
 					SideBar
@@ -43,8 +28,7 @@ $blogPosts = $query->fetchAll(PDO::FETCH_ASSOC);
 			<div class="row">
 			<div class="col-md-12">
 				<footer>
-					Este es un pie de pagina
-					<a href="admin/index.php">Admin</a>
+					Seccion de administrador
 				</footer>
 			</div>
 			</div>
