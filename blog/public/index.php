@@ -29,6 +29,10 @@ use Phroute\Phroute\RouteCollector;
 
 $router = new RouteCollector();
 
+$router->get('/admin', function(){
+	return render('../views/admin/index.php');
+});
+
 $router->get('/', function () use ($pdo){
 	$query = $pdo->prepare('SELECT * FROM blog_post ORDER BY id DESC');
 	$query->execute();
