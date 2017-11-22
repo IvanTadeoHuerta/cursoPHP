@@ -1,16 +1,3 @@
-<?php
-
-$result = false;
-
-if(!empty($_POST)){
-	$sql = 'INSERT INTO blog_post (titulo, contenido) values (:titulo,:contenido)';
-	$query = $pdo->prepare($sql);
-	$result = $query->execute([
-		'titulo' => $_POST['titulo'],
-		'contenido' => $_POST['contenido']
-	]);
-}
-?>
 <html>
 	<head>
 		<title>
@@ -25,7 +12,7 @@ if(!empty($_POST)){
 				<div class="col-md-12">
 					<h1>Administrador- agregar nuevo post</h1>
 						<?php
-						if($result){
+						if(isset($result) && $result){
 							echo '<div class="alert alert-success">Se agrego correctamente!!</div>';
 						}
 					?>
@@ -33,7 +20,7 @@ if(!empty($_POST)){
 			</div>
 			<div class="row">
 				<div class="col-md-8">
-					 <form action="nuevo.php" method="post">
+					 <form method="post">
 						    <div class="form-group">
 						      <label for="titulo">Titulo:</label>
 						      <input type="titulo" class="form-control" id="titulo" placeholder="Ingresa titulo" name="titulo">
