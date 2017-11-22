@@ -7,6 +7,12 @@ require_once '../vendor/autoload.php';
 
 include_once '../config.php';
 
+$baseUrl = '';
+$baseDir = str_replace(basename($_SERVER['SCRIPT_NAME']),'',$_SERVER['SCRIPT_NAME']);
+$baseUrl = 'http://'.$_SERVER['HTTP_HOST'];
+
+define('BASE_URL',$baseUrl);
+
 $route = $_GET['route'] ?? '/';
 
 /*
