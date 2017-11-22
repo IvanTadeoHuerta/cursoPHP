@@ -58,13 +58,7 @@ $router->get('/admin/posts', function() use ($pdo){
 	return render('../views/admin/posts.php' , ['blogPosts' => $blogPosts]);
 });
 
-$router->get('/', function () use ($pdo){
-	$query = $pdo->prepare('SELECT * FROM blog_post ORDER BY id DESC');
-	$query->execute();
-	$blogPosts = $query->fetchAll(PDO::FETCH_ASSOC);
-	return  render('../views/index.php',['blogPosts' => $blogPosts]);
-}); 
-
+$router->controller('/',App\Controller\IndexController::class);
 # NB. You can cache the return value from $router->getData() so you don't have to create the routes each request - massive speed gains
 $dispatcher = new Phroute\Phroute\Dispatcher($router->getData());
 
