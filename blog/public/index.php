@@ -29,9 +29,7 @@ use Phroute\Phroute\RouteCollector;
 
 $router = new RouteCollector();
 
-$router->get('/admin', function(){
-	return render('../views/admin/index.php');
-});
+$router->controller('/admin', App\Controller\Admin\IndexController::class);
 
 $router->get('/admin/nuevo', function(){
 	return render('../views/admin/nuevo.php');

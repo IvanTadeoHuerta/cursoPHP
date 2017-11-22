@@ -38,7 +38,7 @@
 			<div class="col-md-12">
 				<footer>
 					Este es un pie de pagina
-					<a href="admin/index.php">Admin</a>
+					<a href="<?php echo BASE_URL?>admin/">Admin</a>
 				</footer>
 			</div>
 			</div>
