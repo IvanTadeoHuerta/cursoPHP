@@ -15,6 +15,13 @@ define('BASE_URL',$baseUrl);
 
 $route = $_GET['route'] ?? '/';
 
+function render($fileName, $params =[]){
+	ob_start();
+	extract($params);
+	include $fileName;
+	return ob_get_clean();
+}
+
 /*
  *https://packagist.org/packages/phroute/phroute
  */
@@ -26,7 +33,7 @@ $router->get('/', function () use ($pdo){
 	$query = $pdo->prepare('SELECT * FROM blog_post ORDER BY id DESC');
 	$query->execute();
 	$blogPosts = $query->fetchAll(PDO::FETCH_ASSOC);
-	include '../views/index.php';
+	return  render('../views/index.php',['blogPosts' => $blogPosts]);
 }); 
 
 # NB. You can cache the return value from $router->getData() so you don't have to create the routes each request - massive speed gains
