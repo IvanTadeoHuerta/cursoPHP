@@ -9,7 +9,7 @@ include_once '../config.php';
 
 $baseUrl = '';
 $baseDir = str_replace(basename($_SERVER['SCRIPT_NAME']),'',$_SERVER['SCRIPT_NAME']);
-$baseUrl = 'http://'.$_SERVER['HTTP_HOST'];
+$baseUrl = 'http://'.$_SERVER['HTTP_HOST']. $baseDir;
 
 define('BASE_URL',$baseUrl);
 
@@ -31,6 +31,17 @@ $router = new RouteCollector();
 
 $router->get('/admin', function(){
 	return render('../views/admin/index.php');
+});
+
+$router->get('/admin/nuevo', function(){
+	return render('../views/admin/nuevo.php');
+});
+
+$router->get('/admin/posts', function() use ($pdo){
+	$query = $pdo->prepare('SELECT * FROM blog_post ORDER BY id DESC');
+	$query->execute();
+	$blogPosts = $query->fetchAll(PDO::FETCH_ASSOC);
+	return render('../views/admin/posts.php' , ['blogPosts' => $blogPosts]);
 });
 
 $router->get('/', function () use ($pdo){

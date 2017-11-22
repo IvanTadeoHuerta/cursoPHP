@@ -17,7 +17,7 @@
 				<div class="col-md-8">
 					<ul>
 						<li>
-							<a href="posts.php">Manage posts</a>
+							<a href="<?php echo BASE_URL; ?>/admin/posts">Manage posts</a>
 						</li>
 					</ul>		
 				</div>

@@ -1,9 +1,3 @@
-<?php
-
-$query = $pdo->prepare('SELECT * FROM blog_post ORDER BY id DESC');
-$query->execute();
-$blogPosts = $query->fetchAll(PDO::FETCH_ASSOC);
-?>
 <html>
 	<head>
 		<title>
@@ -44,7 +38,7 @@ $blogPosts = $query->fetchAll(PDO::FETCH_ASSOC);
 					</table>	
 				</div>
 				<div class="clo-md-4">
-					<a class="btn btn-success" href="nuevo.php">Agregar nuevo</a>
+					<a class="btn btn-success" href="<?php echo BASE_URL; ?>/admin/nuevo">Agregar nuevo</a>
 				</div>
 			</div>
 			<div class="row">
